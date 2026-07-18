@@ -3,6 +3,13 @@ import "./App.css";
 import ListofPlayers from "./Components/ListofPlayers";
 import Scorebelow70 from "./Components/Scorebelow70";
 
+import {
+  OddPlayers,
+  EvenPlayers,
+  IndianPlayers,
+  ListofIndianPlayers
+} from "./Components/IndianPlayers";
+
 function App() {
 
   const players = [
@@ -11,15 +18,24 @@ function App() {
     { name: "John", score: 40 },
     { name: "Ann", score: 61 },
     { name: "Elisabeth", score: 61 },
-    { name: "Sachin", score: 95 },
-    { name: "Dhoni", score: 100 },
-    { name: "Virat", score: 84 },
-    { name: "Jadeja", score: 64 },
-    { name: "Raina", score: 75 },
-    { name: "Rohit", score: 80 }
+    { name: "Sachin1", score: 95 },
+    { name: "Dhoni2", score: 100 },
+    { name: "Virat3", score: 84 },
+    { name: "Rohit4", score: 80 },
+    { name: "Yuvraj5", score: 90 },
+    { name: "Raina6", score: 75 }
   ];
 
-  const flag = true;
+  const IndianTeam = [
+    "Sachin1",
+    "Dhoni2",
+    "Virat3",
+    "Rohit4",
+    "Yuvraj5",
+    "Raina6"
+  ];
+
+  const flag = false;
 
   if (flag === true) {
 
@@ -38,9 +54,33 @@ function App() {
 
       </div>
     );
+
+  } else {
+
+    return (
+      <div>
+
+        <h1>Indian Team</h1>
+
+        <h2>Odd Players</h2>
+        <OddPlayers IndianTeam={IndianTeam} />
+
+        <hr />
+
+        <h2>Even Players</h2>
+        <EvenPlayers IndianTeam={IndianTeam} />
+
+        <hr />
+
+        <h2>List of Indian Players Merged</h2>
+
+        <ListofIndianPlayers IndianPlayers={IndianPlayers} />
+
+      </div>
+    );
+
   }
 
-  return <div></div>;
 }
 
 export default App;
