@@ -1,6 +1,6 @@
 import React from "react";
 
-// Odd Players using Destructuring
+
 export function OddPlayers({ IndianTeam }) {
   const [first, , third, , fifth] = IndianTeam;
 
@@ -15,7 +15,7 @@ export function OddPlayers({ IndianTeam }) {
   );
 }
 
-// Even Players using Destructuring
+
 export function EvenPlayers({ IndianTeam }) {
   const [, second, , fourth, , sixth] = IndianTeam;
 
@@ -43,13 +43,13 @@ const RanjiPlayers = [
   "Sixth Player"
 ];
 
-// Merge Arrays using ES6 Spread Operator
+
 export const IndianPlayers = [
   ...T20Players,
   ...RanjiPlayers
 ];
 
-// Display Merged Players
+
 export function ListofIndianPlayers({ IndianPlayers }) {
   return (
     <div>

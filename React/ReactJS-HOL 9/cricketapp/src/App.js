@@ -1,86 +1,85 @@
+import React from "react";
 import "./App.css";
-
-import ListofPlayers from "./Components/ListofPlayers";
-import Scorebelow70 from "./Components/Scorebelow70";
-
-import {
-  OddPlayers,
-  EvenPlayers,
-  IndianPlayers,
-  ListofIndianPlayers
-} from "./Components/IndianPlayers";
 
 function App() {
 
-  const players = [
-    { name: "Jack", score: 50 },
-    { name: "Michael", score: 70 },
-    { name: "John", score: 40 },
-    { name: "Ann", score: 61 },
-    { name: "Elisabeth", score: 61 },
-    { name: "Sachin1", score: 95 },
-    { name: "Dhoni2", score: 100 },
-    { name: "Virat3", score: 84 },
-    { name: "Rohit4", score: 80 },
-    { name: "Yuvraj5", score: 90 },
-    { name: "Raina6", score: 75 }
+  const officeImage =
+    "https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=600";
+
+  const office = {
+    Name: "DBS",
+    Rent: 50000,
+    Address: "Chennai"
+  };
+
+  const officeList = [
+    {
+      Name: "DBS",
+      Rent: 50000,
+      Address: "Chennai"
+    },
+    {
+      Name: "Regus",
+      Rent: 75000,
+      Address: "Bangalore"
+    },
+    {
+      Name: "WeWork",
+      Rent: 90000,
+      Address: "Hyderabad"
+    }
   ];
 
-  const IndianTeam = [
-    "Sachin1",
-    "Dhoni2",
-    "Virat3",
-    "Rohit4",
-    "Yuvraj5",
-    "Raina6"
-  ];
+  return (
+    <div style={{ marginLeft: "40px" }}>
 
-  const flag = false;
+      <h1>Office Space , at Affordable Range</h1>
 
-  if (flag === true) {
+      <img
+        src={officeImage}
+        alt="Office Space"
+        width="25%"
+        height="25%"
+      />
 
-    return (
-      <div>
+      <h2>Name: {office.Name}</h2>
 
-        <h1>List of Players</h1>
+      <h3
+        style={{
+          color: office.Rent <= 60000 ? "red" : "green"
+        }}
+      >
+        Rent Rs. {office.Rent}
+      </h3>
 
-        <ListofPlayers players={players} />
+      <h3>Address: {office.Address}</h3>
 
-        <hr />
+      <hr />
 
-        <h1>List of Players having Scores Less than 70</h1>
+      <h2>Available Office Spaces</h2>
 
-        <Scorebelow70 players={players} />
+      {officeList.map((item, index) => (
+        <div key={index} style={{ marginBottom: "20px" }}>
 
-      </div>
-    );
+          <h3>Name: {item.Name}</h3>
 
-  } else {
+          <h3
+            style={{
+              color: item.Rent <= 60000 ? "red" : "green"
+            }}
+          >
+            Rent Rs. {item.Rent}
+          </h3>
 
-    return (
-      <div>
+          <h3>Address: {item.Address}</h3>
 
-        <h1>Indian Team</h1>
+          <hr />
 
-        <h2>Odd Players</h2>
-        <OddPlayers IndianTeam={IndianTeam} />
+        </div>
+      ))}
 
-        <hr />
-
-        <h2>Even Players</h2>
-        <EvenPlayers IndianTeam={IndianTeam} />
-
-        <hr />
-
-        <h2>List of Indian Players Merged</h2>
-
-        <ListofIndianPlayers IndianPlayers={IndianPlayers} />
-
-      </div>
-    );
-
-  }
-
+    </div>
+  );
 }
 
 export default App;
