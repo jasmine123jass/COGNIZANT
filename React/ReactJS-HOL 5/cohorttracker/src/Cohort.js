@@ -1,25 +1,54 @@
-class Cohort {
-    constructor(cohortCode,
-        startDate,
-        technology,
-        trainerName,
-        coachName,
-        currentStatus) {
-        this.cohortCode = cohortCode;
-        this.coachName = coachName;
-        this.trainerName = trainerName;
-        this.technology = technology;
-        this.startDate = startDate;
-        this.currentStatus = currentStatus;
+import React from "react";
+import "./App.css";
+import CohortDetails from "./CohortDetails";
+
+function Cohort() {
+
+  const cohortData = [
+    {
+      cohortCode: "INTADMDF10 .NET FSD",
+      technology: ".NET FSD",
+      startDate: "22-Feb-2022",
+      currentStatus: "Ongoing",
+      coachName: "Sathish",
+      trainerName: "Ramesh"
+    },
+    {
+      cohortCode: "ADM21JF014 Java FSD",
+      technology: "Java FSD",
+      startDate: "10-Sep-2021",
+      currentStatus: "Completed",
+      coachName: "Ravi",
+      trainerName: "Kumar"
+    },
+    {
+      cohortCode: "CDBJF21025 Java FSD",
+      technology: "Java FSD",
+      startDate: "24-Dec-2021",
+      currentStatus: "Ongoing",
+      coachName: "John",
+      trainerName: "David"
     }
+  ];
+
+  return (
+    <div>
+
+      <h1>Cohorts Details</h1>
+
+      <div className="container">
+
+        {cohortData.map((cohort, index) => (
+          <CohortDetails
+            key={index}
+            cohort={cohort}
+          />
+        ))}
+
+      </div>
+
+    </div>
+  );
 }
-const CohortsData =[
-    new Cohort('INTADMDF10','22-Feb-2022', '.NET FSD', 'Jojo Jose','Aathma', 'Scheduled'),
-    new Cohort('ADM21JF014','10-Sep-2021', 'Java FSD', 'Elisa Smith','Apoorv', 'Ongoing'),
-    new Cohort('CDBJF21025','24-Dec-2021', 'Java FSD', 'John Doe','Aathma', 'Ongoing'),
-    new Cohort('INTADMJF12','22-Feb-2022', 'Java FSD', 'To Be Assigned','Ibrahim', 'Scheduled'),
-    new Cohort('CDE22JF011','24-Dec-2021', 'Java FSD', 'Emma Swan','Apoorv', 'Ongoing'),
-    new Cohort('INTADMDF09','22-Feb-2022', 'Dataware Housing', 'Babjee Rao','Aathma', 'Scheduled'),
-    new Cohort('ADM22DF001','10-Sep-2021', '.NET FSD', 'Marie Curie','Ibrahim', 'Ongoing'),
-];
-export {Cohort, CohortsData};
+
+export default Cohort;
